@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // suas configurações aqui
+  images: {
+    domains: ["framerusercontent.com"],
+  },
 };
 
 module.exports = nextConfig;
