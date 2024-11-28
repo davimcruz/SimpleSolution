@@ -5,14 +5,22 @@ import { GoArrowUpRight } from "react-icons/go";
 import StarField from "@/app/components/StarField";
 import Image from 'next/image';
 
-const fadeInUpVariant = {
-  hidden: { opacity: 0, y: 40 },
+
+const imageContainerVariant = {
+  hidden: { 
+    opacity: 0, 
+    scale: 0.9,
+    y: 60,
+    rotate: -2
+  },
   visible: { 
     opacity: 1, 
+    scale: 1,
     y: 0,
+    rotate: 0,
     transition: {
-      duration: 0.8,
-      ease: "easeOut"
+      duration: 1.2,
+      ease: [0.22, 1, 0.36, 1],
     }
   }
 };
@@ -31,12 +39,12 @@ const ImageContainer: React.FC<ImageContainerProps> = ({
   className = "" 
 }) => (
   <motion.div 
-    initial={{ opacity: 0, y: 40 }}
-    animate={{ opacity: 1, y: 0 }}
+    variants={imageContainerVariant}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, margin: "-100px" }}
     transition={{ 
-      duration: 0.8,
-      ease: "easeOut",
-      delay 
+      delay,
     }}
     className={`backdrop-blur-lg bg-white/5 rounded-3xl p-2 ${className}`}
   >
@@ -53,82 +61,66 @@ const ImageContainer: React.FC<ImageContainerProps> = ({
   </motion.div>
 );
 
+const containerVariant = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+      delayChildren: 0.2,
+    }
+  }
+};
+
+const itemVariant = {
+  hidden: { 
+    opacity: 0, 
+    y: 40,
+    scale: 0.95
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 1,
+      ease: [0.22, 1, 0.36, 1],
+    }
+  }
+};
+
 const Hero = () => {
   const [scope, animate] = useAnimate();
 
   const handleMouseEnter = () => {
-    animate(scope.current, {
-      opacity: [1, 0],
-      x: [0, -10],
-    }, {
-      duration: 0.15,
-      ease: "easeOut"
-    }).then(() => {
-      animate(scope.current, {
-        opacity: [0, 1],
-        x: [10, 0],
-      }, {
-        duration: 0.15,
-        ease: "easeOut"
-      });
-    });
+    animate([
+      [scope.current, { y: -20, opacity: 0 }, { duration: 0.2 }],
+      [scope.current, { y: 20 }, { duration: 0 }],
+      [scope.current, { y: 0, opacity: 1 }, { duration: 0.2 }]
+    ]);
   };
 
   const handleMouseLeave = () => {
-    animate(scope.current, {
-      opacity: [1, 0],
-      x: [0, 10],
-    }, {
-      duration: 0.15,
-      ease: "easeOut"
-    }).then(() => {
-      animate(scope.current, {
-        opacity: [0, 1],
-        x: [-10, 0],
-      }, {
-        duration: 0.15,
-        ease: "easeOut"
-      });
-    });
+    animate([
+      [scope.current, { y: 20, opacity: 0 }, { duration: 0.2 }],
+      [scope.current, { y: -20 }, { duration: 0 }],
+      [scope.current, { y: 0, opacity: 1 }, { duration: 0.2 }]
+    ]);
   };
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden">
-      <motion.div 
-        initial={{ opacity: 0, scale: 1.1 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
-        className="absolute top-0 right-0 w-full md:w-1/2 h-full z-0 bg-gradient-to-b from-transparent to-black/90 md:bg-none"
-      >
-        <Image 
-          src="https://framerusercontent.com/images/fGcjZ99aH15nOvlG5HEMNGs4ro.png"
-          alt="Background gradient"
-          width={1024}
-          height={1024}
-          className="w-full h-full block md:hidden lg:hidden xl:block object-cover opacity-50 md:opacity-100"
-          priority
-        />
-      </motion.div>
-
       <StarField />
       
       <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center lg:items-start px-4 lg:px-6 xl:px-8 2xl:px-32 pt-12 lg:pt-28">
         <motion.div 
+          variants={containerVariant}
           initial="hidden"
           animate="visible"
-          variants={{
-            visible: {
-              transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.3,
-              }
-            },
-            hidden: {}
-          }}
           className="flex flex-col max-w-3xl z-10 lg:ml-auto lg:mr-24 text-center lg:text-left px-4 lg:px-0 mt-8 lg:mt-0"
         >
           <motion.div
-            variants={fadeInUpVariant}
+            variants={itemVariant}
             className="relative inline-block w-fit mb-4 md:mb-4 mx-auto lg:mx-0"
           >
             <div className="inline-flex items-center px-1">
@@ -141,52 +133,60 @@ const Hero = () => {
           </motion.div>
 
           <motion.h1 
-            variants={fadeInUpVariant}
+            variants={itemVariant}
             className="text-white text-3xl md:text-5xl xl:text-7xl max-w-lg xl:max-w-3xl mb-4 md:mb-4 font-semibold leading-[1.2] md:leading-[1.1] tracking-[-0.02em] font-poppins"
           >
             Evoluindo Soluções para a{" "}
             <motion.span
-              className="inline-block bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600 bg-clip-text text-transparent leading-tight"
-              animate={{
-                backgroundPosition: ["0%", "100%"],
-                backgroundSize: ["200% 100%", "200% 100%"],
+              className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent"
+              style={{ 
+                paddingBottom: '4px',
               }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-              style={{ paddingBottom: '4px' }}
             >
               Era Digital.
             </motion.span>
           </motion.h1>
-          
+
           <motion.p
-            variants={fadeInUpVariant}
+            variants={itemVariant}
             className="text-[#828E9D] text-lg md:text-xl leading-relaxed max-w-xl mb-8 opacity-80 font-normal font-dmsans mx-auto md:mx-0"
           >
             Descubra o Futuro da Tecnologia: Soluções Inovadoras, Experiências Simples e Resultados Extraordinários.
           </motion.p>
 
           <motion.div
-            variants={fadeInUpVariant}
+            variants={itemVariant}
             className="mx-auto lg:mx-0"
           >
             <button
-              className="flex items-center gap-2 px-6 py-3 text-md font-medium font-poppins text-white bg-[#0066FF] rounded-xl group transition duration-300 hover:bg-blue-500"
+              className="group flex items-center gap-2 px-6 py-3 text-md font-medium font-poppins text-white bg-[#0061FF] rounded-xl transition-all duration-300 hover:bg-blue-600"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
               Explorar Soluções
-              <div ref={scope}>
-                <GoArrowUpRight className="text-lg transition-colors duration-300" />
+              <div className="relative h-[18px] w-[18px] overflow-hidden">
+                <div ref={scope}>
+                  <GoArrowUpRight className="text-lg absolute" />
+                </div>
               </div>
             </button>
           </motion.div>
         </motion.div>
 
         <div className="relative flex-1 h-[600px] z-10 mt-12 lg:mt-0">
+          <div className="absolute right-[100px] w-[500px] h-[500px] top-1/2 -translate-y-1/2 hidden lg:block">
+            <div className="absolute inset-0 
+              bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))]
+              from-blue-500/40 via-blue-600/20 to-transparent
+              blur-3xl"
+            />
+            <div className="absolute inset-0 
+              bg-[radial-gradient(circle_at_60%_50%,_var(--tw-gradient-stops))]
+              from-blue-400/30 via-transparent to-transparent
+              blur-2xl"
+            />
+          </div>
+
           <div className="lg:hidden relative w-full h-full flex items-center justify-center">
             <div className="relative w-[260px] md:hidden">
               <ImageContainer 

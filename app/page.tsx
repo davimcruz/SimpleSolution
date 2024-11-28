@@ -1,3 +1,4 @@
+import CompanySlider from "./components/companys/page";
 import Header from "./components/header/page";
 import Hero from "./sections/Hero";
 export default function Home() {
@@ -5,6 +6,7 @@ export default function Home() {
     <>
       <Header />
       <Hero />
+      <CompanySlider/>
 
     </>
   );
