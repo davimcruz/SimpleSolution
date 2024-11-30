@@ -58,7 +58,7 @@ const CompanySlider = () => {
         opacity: { duration: 1 },
         y: { duration: 0.8 }
       }}
-      className="relative w-full max-w-[1200px] mx-auto h-[100px] overflow-hidden -mt-10"
+      className="relative w-full max-w-[1200px] mx-auto h-[100px] overflow-hidden mt-10 md:-mt-10"
     >
       <div className="absolute top-0 bottom-0 left-0 w-[30px] z-10 
            pointer-events-none [box-shadow:inset_5px_0_8px_-5px_rgba(0,0,0,0.1)]" />
