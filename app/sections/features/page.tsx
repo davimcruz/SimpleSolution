@@ -2,29 +2,24 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { GoArrowUpRight } from "react-icons/go";
+import Image from "next/image";
+import Link from "next/dist/client/link";
+import { PiPaperPlaneTiltBold } from "react-icons/pi";
 
 export default function Features() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { 
     once: false,
-    amount: 0.2,
-    margin: "0px 0px -100px 0px"
+    amount: 0.1, // Reduzido para detectar mais cedo
+    margin: "100px 0px -100px 0px" // Aumentado margin superior
   });
-  const isFirstRender = useRef(true);
-
-  const getTransitionDuration = () => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return 1;
-    }
-    return 0.5;
-  };
 
   const itemVariants = {
     hidden: { 
       opacity: 0,
-      y: 20,
-      scale: 0.95
+      y: 10, // Reduzido deslocamento
+      scale: 0.98 // Reduzido scale
     },
     visible: (custom: number) => ({ 
       opacity: 1,
@@ -32,10 +27,11 @@ export default function Features() {
       scale: 1,
       transition: {
         type: "spring",
-        stiffness: 50,
-        mass: 0.5,
-        duration: getTransitionDuration(),
-        delay: custom * 0.2,
+        stiffness: 70, // Aumentado stiffness
+        mass: 0.4, // Reduzido mass
+        damping: 15, // Adicionado damping
+        duration: 0.3, // Reduzido duration
+        delay: custom * 0.1, // Reduzido delay entre items
       }
     })
   };
@@ -43,7 +39,7 @@ export default function Features() {
   return (
     <section 
       ref={sectionRef}
-      className="bg-white h-full w-full py-8 md:py-16 px-8"
+      className="bg-[#F4F6FA] h-full w-full py-8 md:py-16 px-8"
     >
       <div className="w-full max-w-6xl mx-auto">
         {/* Header */}
@@ -79,24 +75,149 @@ export default function Features() {
           </motion.p>
         </div>
 
-        {/* Feature Item */}
-        {/* <motion.div
-          custom={3}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={itemVariants}
-          className="max-w-2xl mx-auto"
-        >
-          <h3 className="text-3xl font-dmsans font-medium mb-4">
-            Personalized Budget Planner Tool
-          </h3>
-          <p className="text-[#64748B] text-lg leading-relaxed">
-            Navigate your financial journey with our Comprehensive Debt Management system, effective debt reduction strategies.
-          </p>
-          <button className="mt-6 text-blue-600 font-medium flex items-center gap-2 hover:gap-3 transition-all">
-            Learn more <GoArrowUpRight className="text-lg" />
-          </button>
-        </motion.div> */}
+        {/* Primeiro Feature Item */}
+        <div className="container mx-auto px-4 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+            {/* Coluna de texto - esquerda */}
+            <motion.div
+              custom={3}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              variants={itemVariants}
+              className="max-w-[480px]"
+            >
+              {/* Badge */}
+              <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-8">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="text-blue-600"
+                >
+                  <path
+                    d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+
+              <h3 className="text-[40px] md:text-[48px] font-dmsans font-medium mb-6 leading-[1.2] tracking-[-0.02em]">
+                Desenvolvimento Web Personalizado
+              </h3>
+              <p className="text-[#64748B] text-lg md:text-xl leading-relaxed mb-8 font-dmsans font-light">
+                Criamos soluções web sob medida para seu negócio, com tecnologias modernas e foco em performance, usabilidade e resultados.
+              </p>
+              <Link 
+                href="/projetos" 
+                className="inline-flex items-center bg-blue-600 hover:bg-blue-800 text-white font-medium text-base px-4 py-2 rounded-lg transition-all group font-dmsans duration-300"
+              >
+                Fazer Orçamento
+                <PiPaperPlaneTiltBold className="ml-2 text-md transition-transform duration-300 group-hover:translate-x-0.5" />
+              </Link>
+            </motion.div>
+
+            {/* Coluna da imagem - direita */}
+            <motion.div
+              custom={4}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              variants={itemVariants}
+              className="relative flex justify-end"
+            >
+              <div className="backdrop-blur-lg bg-white/5 rounded-2xl p-2 w-[90%]">
+                <Image
+                  src="https://framerusercontent.com/images/E7NborELFf4WYQvDOQbtUgtu2g.png"
+                  alt="Budget Planner Interface"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto rounded-xl"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Segundo Feature Item */}
+        <div className="container mx-auto px-4 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+            {/* Coluna da imagem - esquerda */}
+            <motion.div
+              custom={5}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              variants={itemVariants}
+              className="relative"
+            >
+              <div className="backdrop-blur-lg bg-white/5 rounded-2xl p-2 w-[90%]">
+                <Image
+                  src="https://framerusercontent.com/images/stJsQgM7t4BY8fudjySc2CcWQ.png"
+                  alt="Analytics Dashboard"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto rounded-xl"
+                />
+              </div>
+            </motion.div>
+
+            {/* Coluna de texto - direita */}
+            <motion.div
+              custom={6}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              variants={itemVariants}
+              className="max-w-[480px]"
+            >
+              {/* Badge */}
+              <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-8">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="text-blue-600"
+                >
+                  <path
+                    d="M8 11C9.10457 11 10 10.1046 10 9C10 7.89543 9.10457 7 8 7C6.89543 7 6 7.89543 6 9C6 10.1046 6.89543 11 8 11Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M16 7C14.8954 7 14 7.89543 14 9C14 10.1046 14.8954 11 16 11C17.1046 11 18 10.1046 18 9C18 7.89543 17.1046 7 16 7Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+
+              <h3 className="text-[40px] md:text-[48px] font-dmsans font-medium mb-6 leading-[1.2] tracking-[-0.02em]">
+                Sistemas Sob Medida
+              </h3>
+              <p className="text-[#64748B] text-lg md:text-xl leading-relaxed mb-8 font-dmsans font-light">
+                Desenvolvemos sistemas personalizados que atendem exatamente às necessidades do seu negócio. Do planejamento à implementação, criamos soluções escaláveis e de alta performance.
+              </p>
+              <Link 
+                href="/sistemas" 
+                className="inline-flex items-center bg-blue-600 hover:bg-blue-800 text-white font-medium text-base px-4 py-2 rounded-lg transition-all group font-dmsans duration-300"
+              >
+                Conhecer mais
+                <GoArrowUpRight className="ml-2 text-md transition-transform duration-300 group-hover:translate-x-0.5" />
+              </Link>
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   )

@@ -134,7 +134,7 @@ const Hero = () => {
 
           <motion.h1 
             variants={itemVariant}
-            className="text-white text-3xl md:text-5xl xl:text-7xl max-w-lg xl:max-w-3xl mb-4 md:mb-4 font-semibold leading-[1.2] md:leading-[1.1] tracking-[-0.02em] font-poppins"
+            className="text-white text-3xl md:text-5xl xl:text-7xl max-w-lg xl:max-w-3xl mb-4 md:mb-4 font-medium leading-[1.2] md:leading-[1.1] tracking-[-0.02em] font-poppins"
           >
             Evoluindo Soluções para a{" "}
             <motion.span

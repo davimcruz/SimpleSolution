@@ -139,7 +139,7 @@ export default function AboutUs() {
   return (
     <section 
       ref={sectionRef}
-      className="bg-white h-full w-full py-8 md:py-16 px-8"
+      className="bg-[#F4F6FA] h-full w-full py-8 md:py-16 px-8"
     >
       <div className="w-full max-w-6xl mx-auto">
         {/* Cabeçalho */}
