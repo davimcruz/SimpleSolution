@@ -100,7 +100,6 @@ export default function FeaturesFinal() {
   return (
     <section ref={sectionRef} className="bg-[#F4F6FA] h-full w-full py-8 md:py-16 px-8">
       <div className="w-full max-w-6xl mx-auto">
-        {/* Títulos com animações */}
         <div className="flex flex-col items-center text-center mb-16">
           <motion.span 
             custom={0}
@@ -136,7 +135,6 @@ export default function FeaturesFinal() {
           </motion.p>
         </div>
 
-        {/* Cards Principais */}
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <motion.div
@@ -197,7 +195,6 @@ export default function FeaturesFinal() {
           </motion.div>
         </div>
 
-        {/* Mini Cards com Tooltips usando Tippy.js */}
         <div className="flex flex-wrap justify-center gap-4">
           {miniFeatures.map((feature, index) => (
             <Tippy

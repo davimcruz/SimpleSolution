@@ -20,14 +20,12 @@ export default function StarField() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Ajusta o canvas para tela retina
     const dpr = window.devicePixelRatio || 1;
     const rect = canvas.getBoundingClientRect();
     canvas.width = rect.width * dpr;
     canvas.height = rect.height * dpr;
     ctx.scale(dpr, dpr);
 
-    // Configurações das estrelas
     const stars: Star[] = Array.from({ length: 50 }, () => ({
       x: Math.random() * rect.width,
       y: Math.random() * rect.height,
@@ -40,7 +38,6 @@ export default function StarField() {
       ctx.clearRect(0, 0, rect.width, rect.height);
 
       stars.forEach((star) => {
-        // Atualiza opacidade
         star.opacity += star.speed;
         if (star.opacity >= 1) {
           star.speed = -star.speed;
@@ -50,7 +47,6 @@ export default function StarField() {
           star.y = Math.random() * rect.height;
         }
 
-        // Desenha a estrela
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(96, 165, 250, ${star.opacity})`;
@@ -62,7 +58,6 @@ export default function StarField() {
 
     animate();
 
-    // Cleanup
     return () => {
       ctx.clearRect(0, 0, rect.width, rect.height);
     };

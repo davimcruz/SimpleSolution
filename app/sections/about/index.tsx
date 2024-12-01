@@ -142,7 +142,6 @@ export default function AboutUs() {
       className="bg-[#F4F6FA] h-full w-full py-8 md:py-16 px-8"
     >
       <div className="w-full max-w-6xl mx-auto">
-        {/* Cabeçalho */}
         <div className="flex flex-col items-center text-center mb-16">
           <motion.span 
             custom={0}
@@ -175,14 +174,12 @@ export default function AboutUs() {
           </motion.p>
         </div>
 
-        {/* Card escuro */}
         <motion.div 
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={cardVariants}
           className="bg-[#070C14] w-full max-w-5xl mx-auto rounded-2xl p-8 md:p-12 relative overflow-hidden"
         >
-          {/* Efeito de rastro no fundo */}
           <div 
             className="absolute left-0 top-0 w-[600px] h-full" 
             style={{
@@ -197,7 +194,6 @@ export default function AboutUs() {
           />
           
           <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto gap-8 md:gap-8 relative z-10">
-            {/* Lado esquerdo - Imagem */}
             <motion.div 
               variants={cardImageVariants}
               className="w-full md:w-[42%] flex justify-center relative"
@@ -225,7 +221,6 @@ export default function AboutUs() {
               </motion.div>
             </motion.div>
 
-            {/* Lado direito - Texto */}
             <div className="w-full md:w-[58%] flex flex-col">
               <motion.h1 
                 custom={0}

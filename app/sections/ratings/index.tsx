@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 
@@ -11,6 +11,19 @@ export default function Ratings() {
     amount: 0.1,
     margin: "100px 0px -100px 0px"
   });
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  const firstRowX = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  const secondRowX = useTransform(scrollYProgress, [0, 1], [0, 200]);
+
+  const logos = [
+    "https://framerusercontent.com/images/XPBVqrJq7bxJOcpC0PhKj1AO4OY.svg",
+    "https://framerusercontent.com/images/rc7sHo2D9yLgviAWUViTpY3g.svg",
+  ];
 
   const itemVariants = {
     hidden: {
@@ -36,10 +49,9 @@ export default function Ratings() {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#070C14] h-full w-full py-20 md:py-32 px-8"
+      className="bg-[#070C14] h-full w-full py-20 md:py-32 overflow-hidden"
     >
-      <div className="w-full max-w-6xl mx-auto">
-        {/* Header */}
+      <div className="w-full max-w-6xl mx-auto px-8">
         <div className="flex flex-col items-center text-center mb-16">
           <motion.span
             custom={0}
@@ -72,27 +84,44 @@ export default function Ratings() {
           </motion.p>
         </div>
 
-        {/* Logos Grid */}
-        <motion.div
-          custom={3}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={itemVariants}
-          className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center justify-items-center mt-16"
-        >
-          {[...Array(7)].map((_, index) => (
-            <div key={index} className="w-32 h-12 relative flex items-center justify-center">
-              <Image
-                src="https://framerusercontent.com/images/ZYDkc9f0trE2brRPnbFUplqMo.svg"
-                alt={`Empresa parceira ${index + 1}`}
-                width={128}
-                height={48}
-                className="opacity-60 hover:opacity-100 transition-opacity duration-300"
-              />
-            </div>
-          ))}
-        </motion.div>
+        <div className="w-full relative mt-16">
+          <motion.div
+            style={{ x: firstRowX }}
+            className="flex gap-8 justify-center"
+          >
+            {Array(14).fill(null).map((_, index) => (
+              <div key={index} className="w-48 h-24 shrink-0 relative flex items-center justify-center">
+                <Image
+                  src={logos[index % logos.length]}
+                  alt={`Empresa parceira ${index + 1}`}
+                  width={240}
+                  height={192}
+                  className="opacity-60 hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            style={{ x: secondRowX }}
+            className="flex gap-8 mt-8 justify-center"
+          >
+            {Array(14).fill(null).map((_, index) => (
+              <div key={index} className="w-48 h-24 shrink-0 relative flex items-center justify-center">
+                <Image
+                  src={logos[index % logos.length]}
+                  alt={`Empresa parceira ${index + 1}`}
+                  width={250}
+                  height={96}
+                  className="opacity-60 hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
+            ))}
+          </motion.div>
+        </div>
       </div>
+
+      
     </section>
   );
 }

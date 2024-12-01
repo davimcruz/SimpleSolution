@@ -11,15 +11,15 @@ export default function Features() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { 
     once: false,
-    amount: 0.1, // Reduzido para detectar mais cedo
-    margin: "100px 0px -100px 0px" // Aumentado margin superior
+    amount: 0.1, 
+    margin: "100px 0px -100px 0px"
   });
 
   const itemVariants = {
     hidden: { 
       opacity: 0,
-      y: 10, // Reduzido deslocamento
-      scale: 0.98 // Reduzido scale
+      y: 10, 
+      scale: 0.98 
     },
     visible: (custom: number) => ({ 
       opacity: 1,
@@ -27,11 +27,11 @@ export default function Features() {
       scale: 1,
       transition: {
         type: "spring",
-        stiffness: 70, // Aumentado stiffness
-        mass: 0.4, // Reduzido mass
-        damping: 15, // Adicionado damping
-        duration: 0.3, // Reduzido duration
-        delay: custom * 0.1, // Reduzido delay entre items
+        stiffness: 70, 
+        mass: 0.4, 
+        damping: 15, 
+        duration: 0.3, 
+        delay: custom * 0.1, 
       }
     })
   };
@@ -42,7 +42,6 @@ export default function Features() {
       className="bg-[#F4F6FA] h-full w-full py-8 md:py-16 px-8"
     >
       <div className="w-full max-w-6xl mx-auto">
-        {/* Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <motion.span 
             custom={0}
@@ -75,10 +74,8 @@ export default function Features() {
           </motion.p>
         </div>
 
-        {/* Primeiro Feature Item */}
         <div className="container mx-auto px-4 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
-            {/* Coluna de texto - esquerda */}
             <motion.div
               custom={3}
               initial="hidden"
@@ -86,7 +83,6 @@ export default function Features() {
               variants={itemVariants}
               className="max-w-[480px]"
             >
-              {/* Badge */}
               <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-8">
                 <svg
                   width="24"
@@ -124,7 +120,6 @@ export default function Features() {
               </Link>
             </motion.div>
 
-            {/* Coluna da imagem - direita */}
             <motion.div
               custom={4}
               initial="hidden"
@@ -145,10 +140,8 @@ export default function Features() {
           </div>
         </div>
 
-        {/* Segundo Feature Item */}
         <div className="container mx-auto px-4 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
-            {/* Coluna da imagem - esquerda */}
             <motion.div
               custom={5}
               initial="hidden"
@@ -167,7 +160,6 @@ export default function Features() {
               </div>
             </motion.div>
 
-            {/* Coluna de texto - direita */}
             <motion.div
               custom={6}
               initial="hidden"
@@ -175,7 +167,6 @@ export default function Features() {
               variants={itemVariants}
               className="max-w-[480px]"
             >
-              {/* Badge */}
               <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-8">
                 <svg
                   width="24"
