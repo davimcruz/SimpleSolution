@@ -94,6 +94,10 @@ const itemVariant = {
 const Hero = () => {
   const [scope, animate] = useAnimate();
 
+  const handleRedirect = () => {
+    window.open('https://wa.me/5562982166830', '_blank');
+  };
+
   const handleMouseEnter = () => {
     animate([
       [scope.current, { y: -20, opacity: 0 }, { duration: 0.2 }],
@@ -164,6 +168,7 @@ const Hero = () => {
               className="group flex items-center gap-2 px-6 py-3 text-md font-medium font-poppins text-white bg-[#0061FF] rounded-xl transition-all duration-300 hover:bg-blue-600"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
+              onClick={handleRedirect}
             >
               Explorar Soluções
               <div className="relative h-[18px] w-[18px] overflow-hidden">

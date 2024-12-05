@@ -30,6 +30,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Simple Solution — Soluções em Tecnologia",
   description: "Soluções minimalistas e profissionais em sistemas, serviços web e design para empresários e clientes respeitados.",
+  keywords: "tecnologia, soluções digitais, desenvolvimento web, sistemas personalizados, design, simple, solution, simplesolution",
+  robots: "index, follow",
   openGraph: {
     title: "Simple Solution — Soluções em Tecnologia",
     description: "Soluções minimalistas e profissionais em sistemas, serviços web e design para empresários e clientes respeitados.",

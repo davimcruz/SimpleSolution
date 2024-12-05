@@ -2,7 +2,8 @@ export default function Footer() {
   return (
     <footer className="bg-[#14161e] text-white py-24">
       <div className="max-w-7xl mx-auto px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 pb-16">
+        {/* <div className="grid grid-cols-1 md:grid-cols-4 gap-16 pb-16"> */}
+        <div>
           
           {/* Logo e descrição */}
           <div className="col-span-1">
@@ -11,12 +12,12 @@ export default function Footer() {
               alt="Simple Solution"
               className="h-12 mb-8"
             />
-            <p className="text-gray-400 text-base font-dmsans leading-relaxed">
+            <p className="text-gray-400 text-base font-dmsans leading-relaxed ">
               Desenvolvemos soluções digitais inovadoras que transformam a maneira como sua empresa interage com o mundo.
             </p>
           </div>
 
-          {/* Serviços */}
+          {/* Serviços
           <div>
             <h3 className="font-dmsans font-medium text-xl mb-6">Serviços</h3>
             <ul className="space-y-4 text-gray-400 font-dmsans text-lg">
@@ -35,7 +36,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Empresa */}
           <div>
             <h3 className="font-dmsans font-medium text-xl mb-6">Empresa</h3>
             <ul className="space-y-4 text-gray-400 font-dmsans text-lg">
@@ -54,7 +54,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Suporte */}
           <div>
             <h3 className="font-dmsans font-medium text-xl mb-6">Suporte</h3>
             <ul className="space-y-4 text-gray-400 font-dmsans text-lg">
@@ -71,8 +70,8 @@ export default function Footer() {
                 Documentação API
               </li>
             </ul>
-          </div>
-        </div>
+          </div>*/}
+        </div> 
 
         <div className="w-full">
           <hr className="border-0 h-[2px] bg-gradient-to-r from-blue-500/20 via-white/10 to-blue-500/20 my-12" />
@@ -89,6 +88,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
+        
       </div>
     </footer>
   )

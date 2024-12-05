@@ -116,7 +116,7 @@ export default function Features() {
                 Criamos soluções web sob medida para seu negócio, com tecnologias modernas e foco em performance, usabilidade e resultados.
               </p>
               <Link 
-                href="/projetos" 
+                href="https://wa.me/5562982166830" 
                 className="inline-flex items-center bg-blue-600 hover:bg-blue-800 text-white font-medium text-base px-4 py-2 rounded-lg transition-all group font-dmsans duration-300"
               >
                 Fazer Orçamento
@@ -198,7 +198,7 @@ export default function Features() {
                 Desenvolvemos sistemas personalizados que atendem exatamente às necessidades do seu negócio. Do planejamento à implementação, criamos soluções escaláveis e de alta performance.
               </p>
               <Link 
-                href="/sistemas" 
+                href="https://wa.me/5562982166830" 
                 className="inline-flex items-center bg-blue-600 hover:bg-blue-800 text-white font-medium text-base px-4 py-2 rounded-lg transition-all group font-dmsans duration-300"
               >
                 Conhecer mais

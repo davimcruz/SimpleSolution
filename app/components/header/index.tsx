@@ -110,7 +110,7 @@ export default function Header() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="flex gap-8"
         >
-          {links.map((link, index) => (
+          {/* {links.map((link, index) => (
             <motion.li 
               key={link.name}
               initial={{ y: -20, opacity: 0 }}
@@ -124,7 +124,7 @@ export default function Header() {
                 {link.name}
               </Link>
             </motion.li>
-          ))}
+          ))} */}
         </motion.ul>
 
         <motion.div
@@ -133,7 +133,7 @@ export default function Header() {
           transition={{ duration: 0.6, delay: 0.8 }}
         >
           <Link 
-            href="/" 
+            href="https://wa.me/5562982166830" 
             className="flex items-center gap-2 px-6 py-2 text-md font-dmsans font-medium text-white bg-[#252931] border border-[#30343A] rounded-lg group transition-all duration-300 hover:bg-blue-600 hover:border-blue-500"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}

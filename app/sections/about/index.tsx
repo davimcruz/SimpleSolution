@@ -6,6 +6,10 @@ import { GoArrowUpRight } from "react-icons/go";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+const handleRedirect = () => {
+  window.open('https://wa.me/5562982166830', '_blank');
+};
+
 export default function AboutUs() {
   const [scope, animate] = useAnimate();
   const sectionRef = useRef(null);
@@ -231,6 +235,7 @@ export default function AboutUs() {
                 className="flex items-center justify-center w-fit px-6 py-3 bg-[#1A1D21] border border-zinc-700 hover:bg-[#222528] text-white text-[15px] font-dmsans font-medium rounded-lg transition-all duration-200 group"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
+                onClick={handleRedirect}
               >
                 <span className="mr-2">Quero saber mais</span>
                 <div 

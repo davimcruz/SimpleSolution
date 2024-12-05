@@ -3,6 +3,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+const handleRedirect = () => {
+  window.open('https://wa.me/5562982166830', '_blank');
+};
+
 export default function Contact() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, {
@@ -74,6 +78,7 @@ export default function Contact() {
               custom={3}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
+              onClick={handleRedirect}
               variants={itemVariants}
               className="group flex items-center gap-2 px-6 py-3 text-md font-medium font-poppins text-white bg-[#0061FF] rounded-xl transition-all duration-300 hover:bg-blue-600"
               >
