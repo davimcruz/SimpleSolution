@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { FaStar, FaSmileWink } from "react-icons/fa";
 
-import { SiOpenproject } from "react-icons/si";
+import { FaUserFriends } from "react-icons/fa";
 
 export default function MostUsed() {
   const sectionRef = useRef(null);
@@ -76,11 +76,11 @@ export default function MostUsed() {
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
                         <div className="bg-blue-500/10 p-2.5 rounded-xl">
-                          <SiOpenproject className="text-blue-600 text-2xl" />
+                          <FaUserFriends className="text-blue-600 text-2xl" />
                         </div>
-                        <span className="text-4xl font-medium text-slate-800 font-dmsans">1.087+</span>
+                        <span className="text-4xl font-medium text-slate-800 font-dmsans">1.000.000+</span>
                       </div>
-                      <p className="text-slate-700 text-md font-normal font-dmsans">Projetos Entregues</p>
+                      <p className="text-slate-700 text-md font-normal font-dmsans">Usuários Atendidos</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
@@ -91,7 +91,7 @@ export default function MostUsed() {
                         <div className="w-3 h-3 rounded-full bg-blue-600"></div>
                         <div className="w-3 h-3 rounded-full bg-blue-600"></div>
                         <div className="w-3 h-3 rounded-full bg-blue-600"></div>
-                        <div className="w-3 h-3 rounded-full bg-blue-300"></div>
+                        <div className="w-3 h-3 rounded-full bg-blue-600"></div>
                       </div>
                     </div>
                   </div>

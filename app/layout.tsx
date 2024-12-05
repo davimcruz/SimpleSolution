@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Simple Solution — Soluções em Tecnologia",
     description: "Soluções minimalistas e profissionais em sistemas, serviços web e design para empresários e clientes respeitados.",
-    url: "https://www.simplesolution.cloud",
+    url: "https://www.simplesolution.com.br",
     siteName: "Simple Solution &copy; 2024",
     images: [
       {

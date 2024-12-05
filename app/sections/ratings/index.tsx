@@ -21,8 +21,11 @@ export default function Ratings() {
   const secondRowX = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
   const logos = [
-    "https://framerusercontent.com/images/XPBVqrJq7bxJOcpC0PhKj1AO4OY.svg",
-    "https://framerusercontent.com/images/rc7sHo2D9yLgviAWUViTpY3g.svg",
+    "/images/1.png",
+    "/images/2.png",
+    "/images/3.png",
+    "/images/4.png",
+    "/images/5.png",
   ];
 
   const itemVariants = {

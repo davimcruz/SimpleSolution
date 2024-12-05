@@ -98,7 +98,7 @@ export default function FeaturesFinal() {
   };
 
   return (
-    <section ref={sectionRef} className="bg-[#F4F6FA] h-full w-full py-8 md:py-16 px-8">
+    <section ref={sectionRef} className="bg-gradient-to-t from-blue-100 to-[#F4F6FA]  h-full w-full py-8 md:py-16 px-8">
       <div className="w-full max-w-6xl mx-auto">
         <div className="flex flex-col items-center text-center mb-16">
           <motion.span 

@@ -4,6 +4,8 @@ import { motion, useAnimate } from "framer-motion";
 import { GoArrowUpRight } from "react-icons/go";
 import StarField from "@/app/components/StarField";
 import Image from 'next/image';
+import Lottie from 'lottie-react';
+import animatedDashboard3 from "@/public/animation-dashboard3.json";
 
 
 const imageContainerVariant = {
@@ -53,7 +55,7 @@ const ImageContainer: React.FC<ImageContainerProps> = ({
         src={src}
         alt={alt}
         width={500}
-        height={300}
+        height={500}
         className="w-full h-auto"
         priority
       />
@@ -126,7 +128,7 @@ const Hero = () => {
             <div className="inline-flex items-center px-1">
               <span className="text-sm md:text-md font-medium font-dmsans text-[#9BA1AC]">
                 Mais de{""}
-                <span className="text-blue-500 font-semibold"> 76.281</span>{" "}
+                <span className="text-blue-500 font-semibold"> 1M de usuários impactados</span>{" "}
                 <span className="text-[#9BA1AC]">usuários impactados.</span>
               </span>
             </div>
@@ -189,40 +191,30 @@ const Hero = () => {
 
           <div className="lg:hidden relative w-full h-full flex items-center justify-center">
             <div className="relative w-[260px] md:hidden">
-              <ImageContainer 
-                src="https://framerusercontent.com/images/L06kDydSsKJ8LId4Ou11xQiWas.png"
-                alt="Phone mockup"
+            <Lottie 
+                animationData={animatedDashboard3} 
+                loop={true} 
+                style={{ width: '100%', height: 'auto' }} 
               />
             </div>
 
             <div className="hidden md:block lg:hidden relative w-[280px]">
-              <ImageContainer 
-                src="https://framerusercontent.com/images/L06kDydSsKJ8LId4Ou11xQiWas.png"
-                alt="Phone mockup"
+            <Lottie 
+                animationData={animatedDashboard3} 
+                loop={true} 
+                style={{ width: '100%', height: 'auto' }} 
               />
             </div>
           </div>
 
           <div className="hidden lg:block relative w-full h-full">
-            <ImageContainer 
-              src="https://framerusercontent.com/images/L06kDydSsKJ8LId4Ou11xQiWas.png"
-              alt="Phone mockup"
-              className="absolute top-0 right-[180px] w-[240px] z-10"
-            />
-            
-            <ImageContainer 
-              src="https://framerusercontent.com/images/bVPQ8bjFHh73fMSk2VNDePSoA.png"
-              alt="Card mockup"
-              className="absolute top-[80px] right-0 w-[240px] z-20"
-              delay={1.2}
-            />
-            
-            <ImageContainer 
-              src="https://framerusercontent.com/images/aAo4r5F6F8W8XGsbOjQm2dwdJY.png?scale-down-to=512"
-              alt="Trusted Users"
-              className="absolute bottom-[180px] right-[280px] w-[220px] z-30"
-              delay={1.4}
-            />
+          <Lottie 
+                animationData={animatedDashboard3} 
+                loop={true} 
+                style={{ width: '500px', height: 'auto' }} 
+              />
+          
+         
           </div>
         </div>
       </div>

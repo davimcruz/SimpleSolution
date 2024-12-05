@@ -14,10 +14,11 @@ const CompanySlider = () => {
   })
   
   const companies = [
-    'https://framerusercontent.com/images/lo3NQV5s300QS0DSSxciQNNYAw.svg',
-    'https://framerusercontent.com/images/njR4vc3CneMWk2Hb2Fssp9pHTbk.svg',
-    'https://framerusercontent.com/images/wWb4slCaOduEWAivmJFstMjx6qc.svg',
-    'https://framerusercontent.com/images/Y6yn57fYB15aSbFBhmwqiOzQrQ.svg',
+    '/images/1.png',
+    '/images/2.png',
+    '/images/3.png',
+    '/images/4.png',
+    '/images/5.png',
   ]
 
   useEffect(() => {

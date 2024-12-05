@@ -139,7 +139,7 @@ export default function AboutUs() {
   return (
     <section 
       ref={sectionRef}
-      className="bg-[#F4F6FA] h-full w-full py-8 md:py-16 px-8"
+      className="bg-gradient-to-b from-blue-100 to-[#F4F6FA] h-full w-full py-8 md:py-16 px-8"
     >
       <div className="w-full max-w-6xl mx-auto">
         <div className="flex flex-col items-center text-center mb-16">
@@ -200,25 +200,13 @@ export default function AboutUs() {
             >
               <div className="backdrop-blur-lg bg-white/5 rounded-2xl p-2">
                 <Image
-                  src="https://framerusercontent.com/images/z9K1Bvlhbgk62X1FY6V9z1zuag.png"
-                  alt="Imagem de Cartão"
-                  width={320}
-                  height={320}
-                  className="w-[220px] md:w-[240px] h-auto object-contain"
+                  src="/images/developer.svg"
+                  alt="Desenvolvedor 3D"
+                  width={420}
+                  height={420}
+                  className="w-[220px] md:w-[340px] h-auto object-contain"
                 />
               </div>
-              <motion.div 
-                variants={cardImageVariants}
-                className="absolute top-[30%] right-[65%] z-10 backdrop-blur-lg bg-white/5 rounded-2xl p-2"
-              >
-                <Image
-                  src="https://framerusercontent.com/images/KlDG3WqhwIABtaNjXgKhWCda1FE.svg"
-                  alt="Decoração"
-                  width={400}
-                  height={400}
-                  className="w-[120px] h-auto"
-                />
-              </motion.div>
             </motion.div>
 
             <div className="w-full md:w-[58%] flex flex-col">

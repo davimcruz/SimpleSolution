@@ -6,6 +6,9 @@ import { GoArrowUpRight } from "react-icons/go";
 import Image from "next/image";
 import Link from "next/dist/client/link";
 import { PiPaperPlaneTiltBold } from "react-icons/pi";
+import Lottie from 'lottie-react';
+import animatedDashboard from "@/public/animation-dashboard.json";
+import animatedDashboard2 from "@/public/animation-dashboard2.json";
 
 export default function Features() {
   const sectionRef = useRef(null);
@@ -50,8 +53,9 @@ export default function Features() {
             variants={itemVariants}
             className="bg-[#EEF2FF] text-blue-600 text-[14px] font-medium tracking-wide font-dmsans mb-8 py-2 px-8 rounded-full"
           >
-            Inovando Soluções Digitais.
+            Simplificando Soluções Digitais.
           </motion.span>
+
           
           <motion.h2 
             custom={1}
@@ -127,15 +131,11 @@ export default function Features() {
               variants={itemVariants}
               className="relative flex justify-end"
             >
-              <div className="backdrop-blur-lg bg-white/5 rounded-2xl p-2 w-[90%]">
-                <Image
-                  src="https://framerusercontent.com/images/E7NborELFf4WYQvDOQbtUgtu2g.png"
-                  alt="Budget Planner Interface"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto rounded-xl"
-                />
-              </div>
+              <Lottie 
+                animationData={animatedDashboard} 
+                loop={true} 
+                style={{ width: '100%', height: 'auto' }} 
+              />
             </motion.div>
           </div>
         </div>
@@ -150,13 +150,11 @@ export default function Features() {
               className="relative"
             >
               <div className="backdrop-blur-lg bg-white/5 rounded-2xl p-2 w-[90%]">
-                <Image
-                  src="https://framerusercontent.com/images/stJsQgM7t4BY8fudjySc2CcWQ.png"
-                  alt="Analytics Dashboard"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto rounded-xl"
-                />
+              <Lottie 
+                animationData={animatedDashboard2} 
+                loop={true} 
+                style={{ width: '100%', height: 'auto' }} 
+              />
               </div>
             </motion.div>
 

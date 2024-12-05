@@ -79,7 +79,7 @@ export default function Header() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <Link href="/">
-            <Image src="https://framerusercontent.com/images/AGPkgX5dQJGUFEV0yyQmnbMZsrw.svg" alt="Simple Solution" width={130} height={130} />
+            <Image src="/images/logo-1.png" alt="Simple Solution" width={130} height={130} />
           </Link>
         </motion.div>
 
@@ -100,7 +100,7 @@ export default function Header() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <Link href="/">
-            <Image src="https://framerusercontent.com/images/AGPkgX5dQJGUFEV0yyQmnbMZsrw.svg" alt="Simple Solution" width={150} height={120} />
+            <Image src="/images/logo-1.png" alt="Simple Solution" width={150} height={120} />
           </Link>
         </motion.div>
 
