@@ -144,8 +144,7 @@ export default function MostUsed() {
             animate={isInView ? "visible" : "hidden"}
             variants={itemVariants}
             className="bg-white/[0.03] backdrop-blur-sm rounded-2xl p-6 border border-white/[0.05] 
-            transition-all duration-300 hover:bg-white/[0.07] hover:-translate-y-1 hover:shadow-lg 
-            hover:shadow-blue-500/10 cursor-pointer"
+            transition-all duration-300 hover:!scale-105 cursor-pointer"
           >
             <p className="text-4xl font-light text-blue-500 font-dmsans">23.021+</p>
             <p className="text-gray-500 mt-1 text-sm font-light font-dmsans">Clientes Ativos</p>
@@ -158,7 +157,7 @@ export default function MostUsed() {
             variants={itemVariants}
             className="bg-white/[0.03] backdrop-blur-sm rounded-2xl p-6 border border-white/[0.05] 
             transition-all duration-300 hover:bg-white/[0.07] hover:-translate-y-1 hover:shadow-lg 
-            hover:shadow-blue-500/10 cursor-pointer"
+            hover:shadow-blue-500/10  hover:!scale-105 cursor-pointer"
           >
             <p className="text-4xl font-light text-blue-500 font-dmsans">7.2%+</p>
             <p className="text-gray-500 mt-1 text-sm font-light font-dmsans">Redução de Custos</p>
@@ -171,7 +170,7 @@ export default function MostUsed() {
             variants={itemVariants}
             className="bg-white/[0.03] backdrop-blur-sm rounded-2xl p-6 border border-white/[0.05] 
             transition-all duration-300 hover:bg-white/[0.07] hover:-translate-y-1 hover:shadow-lg 
-            hover:shadow-blue-500/10 cursor-pointer"
+            hover:shadow-blue-500/10 hover:!scale-105 cursor-pointer"
           >
             <p className="text-4xl font-light text-blue-500 font-dmsans">33.5%+</p>
             <p className="text-gray-500 mt-1 text-sm font-light font-dmsans">Aumento em Leads</p>
@@ -184,7 +183,7 @@ export default function MostUsed() {
             variants={itemVariants}
             className="bg-white/[0.03] backdrop-blur-sm rounded-2xl p-6 border border-white/[0.05] 
             transition-all duration-300 hover:bg-white/[0.07] hover:-translate-y-1 hover:shadow-lg 
-            hover:shadow-blue-500/10 cursor-pointer"
+            hover:shadow-blue-500/10 hover:!scale-105 cursor-pointer"
           >
             <p className="text-4xl font-light text-blue-500 font-dmsans">99.7+</p>
             <p className="text-gray-500 mt-1 text-sm font-light font-dmsans">Avaliações Positivas</p>

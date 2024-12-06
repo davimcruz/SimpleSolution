@@ -44,8 +44,8 @@ export default function Contact() {
     >
       <div className="w-full max-w-6xl mx-auto px-8">
         <div className="bg-[#D1DAE8] rounded-3xl p-8 md:p-16 relative overflow-hidden">
-          <div className="absolute -top-32 -left-32 w-64 h-64 bg-blue-500/20 rounded-full blur-[100px]" />
-          <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-blue-500/20 rounded-full blur-[100px]" />
+          <div className="absolute -top-32 -left-32 w-[450px] h-[450px] bg-blue-500/50 rounded-full blur-[120px]" />
+          <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-blue-500/30 rounded-full blur-[100px]" />
           <div className="flex flex-col items-center text-center relative z-10">
             <motion.span
               custom={0}
@@ -76,17 +76,12 @@ export default function Contact() {
             >
               Estamos prontos para transformar suas ideias em soluções tecnológicas inovadoras. Nossa equipe de desenvolvedores experientes está preparada para criar aplicações sob medida para o seu negócio.
             </motion.p>
-
-            <motion.button
-              custom={3}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
+            <button
               onClick={handleRedirect}
-              variants={itemVariants}
-              className="group flex items-center gap-2 px-6 py-3 text-md font-medium font-poppins text-white bg-[#0061FF] rounded-xl transition-all duration-300 hover:bg-blue-600"
-              >
+              className="group flex items-center gap-2 px-6 py-3 text-md font-medium font-poppins text-white bg-[#0061FF] rounded-xl transition-all duration-300 hover:bg-blue-600 hover:scale-105"
+            >
               Entre em Contato
-            </motion.button>
+            </button>
           </div>
         </div>
       </div>

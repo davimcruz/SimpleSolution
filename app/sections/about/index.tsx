@@ -44,6 +44,64 @@ const Particle = ({ delay = 0 }) => {
   );
 };
 
+// Componente para os pontos animados
+const AnimatedDot = ({ delay = 0 }) => {
+  const dotVariants = {
+    initial: { 
+      y: 0,
+      opacity: 0.3
+    },
+    animate: {
+      y: [-10, 0, -10],
+      opacity: [0.3, 0.6, 0.3],
+      transition: {
+        duration: 3,
+        delay,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  return (
+    <motion.div
+      variants={dotVariants}
+      initial="initial"
+      animate="animate"
+      className="absolute w-[3px] h-[3px] rounded-full bg-blue-400/20"
+    />
+  );
+};
+
+// Novo componente para as bolinhas animadas
+const AnimatedCircle = ({ delay = 0 }) => {
+  const circleVariants = {
+    initial: { 
+      y: 0,
+      opacity: 0.2
+    },
+    animate: {
+      y: [-15, 0, -15],
+      opacity: [0.2, 0.4, 0.2],
+      transition: {
+        duration: 4,
+        delay,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  return (
+    <motion.div
+      variants={circleVariants}
+      initial="initial"
+      animate="animate"
+      className="absolute w-1.5 h-1.5 rounded-full bg-blue-400/20"
+    />
+  );
+};
+
 export default function AboutUs() {
   const [scope, animate] = useAnimate();
   const sectionRef = useRef(null);
@@ -223,6 +281,33 @@ export default function AboutUs() {
           variants={cardVariants}
           className="bg-[#070C14] w-full max-w-5xl mx-auto rounded-2xl p-8 md:p-12 relative overflow-hidden"
         >
+          {/* Efeitos de glow */}
+          <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-500/20 rounded-full blur-[100px]" />
+          <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-blue-400/20 rounded-full blur-[100px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-96 bg-blue-500/10 rounded-full blur-[120px]" />
+
+          {/* Blur superior esquerdo */}
+          <div className="absolute -top-20 -left-20 w-64 h-64 bg-blue-500/10 rounded-full blur-[80px]" />
+          
+          {/* Container das bolinhas animadas */}
+          <div className="absolute inset-0 overflow-hidden">
+            {[...Array(20)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                }}
+              >
+                <AnimatedCircle delay={i * 0.2} />
+              </div>
+            ))}
+          </div>
+
+          {/* Overlay sutil para melhorar contraste */}
+          <div className="absolute inset-0 bg-[#070C14]/40 backdrop-blur-[1px]" />
+
           {/* Partículas de fundo */}
           <div className="absolute inset-0 overflow-hidden">
             {[...Array(15)].map((_, i) => (
@@ -230,8 +315,24 @@ export default function AboutUs() {
             ))}
           </div>
 
-          {/* Overlay sutil para suavizar as partículas */}
-          <div className="absolute inset-0 bg-[#070C14]/10 backdrop-blur-[1px]" />
+          {/* Adicione os pontos animados */}
+          <div className="absolute inset-0 overflow-hidden">
+            {[...Array(20)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                }}
+              >
+                <AnimatedDot delay={i * 0.2} />
+              </div>
+            ))}
+          </div>
+
+          {/* Overlay sutil */}
+          <div className="absolute inset-0 bg-[#070C14]/40 backdrop-blur-[2px]" />
 
           {/* Conteúdo existente */}
           <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto gap-8 md:gap-8 relative z-10">

@@ -120,7 +120,7 @@ export default function FeaturesFinal() {
             variants={itemVariants}
             className="text-4xl md:text-[52px] text-[#1A1D21] font-dmsans font-medium leading-[1.15] tracking-[-0.02em] mb-5 max-w-3xl"
           >
-            Maximize o Potencial do seu <span className="text-blue-600">Negócio Digital</span>
+            Maximize o Potencial do seu <span className="text-blue-600">Negócio Digital.</span>
           </motion.h2>
           
           <motion.p 
