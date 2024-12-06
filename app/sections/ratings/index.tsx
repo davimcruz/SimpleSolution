@@ -51,6 +51,7 @@ export default function Ratings() {
 
   return (
     <section
+      id="ratings"
       ref={sectionRef}
       className="bg-[#070C14] h-full w-full py-20 md:py-32 overflow-hidden"
     >

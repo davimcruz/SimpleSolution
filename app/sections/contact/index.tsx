@@ -38,6 +38,7 @@ export default function Contact() {
 
   return (
     <section
+      id="contact"
       ref={sectionRef}
       className="bg-[#070C14] h-full w-full py-20 md:py-32"
     >

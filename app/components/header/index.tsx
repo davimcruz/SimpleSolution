@@ -18,7 +18,7 @@ const links = [
   },
   {
     name: "Avaliações",
-    href: "/#testimonials",
+    href: "/#ratings",
   },
   {
     name: "Contate-nos",
