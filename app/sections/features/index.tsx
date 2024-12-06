@@ -42,6 +42,7 @@ export default function Features() {
   return (
     <section 
       ref={sectionRef}
+      id="features"
       className="bg-[#F4F6FA] h-full w-full py-8 md:py-16 px-8"
     >
       <div className="w-full max-w-6xl mx-auto">
