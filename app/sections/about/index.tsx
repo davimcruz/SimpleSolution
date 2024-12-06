@@ -4,10 +4,44 @@ import Image from "next/image";
 import { useAnimate } from "framer-motion";
 import { GoArrowUpRight } from "react-icons/go";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 const handleRedirect = () => {
   window.open('https://wa.me/5562982166830', '_blank');
+};
+
+// Componente para as partículas
+const Particle = ({ delay = 0 }) => {
+  const randomX = Math.random() * 100;
+  const randomY = Math.random() * 100;
+  
+  const particleVariants = {
+    initial: {
+      opacity: 0,
+      scale: 0,
+      x: randomX + "%",
+      y: randomY + "%",
+    },
+    animate: {
+      opacity: [0, 1, 0],
+      scale: [0, 1, 0],
+      transition: {
+        duration: 4,
+        delay,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  return (
+    <motion.div
+      variants={particleVariants}
+      initial="initial"
+      animate="animate"
+      className="absolute w-1 h-1 rounded-full bg-blue-400/30"
+    />
+  );
 };
 
 export default function AboutUs() {
@@ -96,7 +130,8 @@ export default function AboutUs() {
       scale: 1,
       transition: {
         type: "spring",
-        stiffness: 40,
+        stiffness: 60,
+        damping: 20,
         mass: 0.8,
         duration: getTransitionDuration(),
         delay: 0.4,
@@ -125,14 +160,17 @@ export default function AboutUs() {
   const cardImageVariants = {
     hidden: { 
       opacity: 0,
-      x: 30
+      scale: 0.8,
+      rotate: -5
     },
     visible: { 
       opacity: 1,
-      x: 0,
+      scale: 1,
+      rotate: 0,
       transition: {
         type: "spring",
-        stiffness: 60,
+        stiffness: 80,
+        damping: 15,
         mass: 0.5,
         duration: getTransitionDuration(),
         delay: 0.6,
@@ -143,6 +181,7 @@ export default function AboutUs() {
   return (
     <section 
       ref={sectionRef}
+      id="about"
       className="bg-gradient-to-b from-blue-100 to-[#F4F6FA] h-full w-full py-8 md:py-16 px-8"
     >
       <div className="w-full max-w-6xl mx-auto">
@@ -184,38 +223,41 @@ export default function AboutUs() {
           variants={cardVariants}
           className="bg-[#070C14] w-full max-w-5xl mx-auto rounded-2xl p-8 md:p-12 relative overflow-hidden"
         >
-          <div 
-            className="absolute left-0 top-0 w-[600px] h-full" 
-            style={{
-              background: `
-                radial-gradient(
-                  ellipse 60% 50% at 0% 50%,
-                  rgba(0, 102, 255, 0.3) 0%,
-                  rgba(0, 102, 255, 0) 100%
-                )
-              `
-            }}
-          />
-          
+          {/* Partículas de fundo */}
+          <div className="absolute inset-0 overflow-hidden">
+            {[...Array(15)].map((_, i) => (
+              <Particle key={i} delay={i * 0.2} />
+            ))}
+          </div>
+
+          {/* Overlay sutil para suavizar as partículas */}
+          <div className="absolute inset-0 bg-[#070C14]/10 backdrop-blur-[1px]" />
+
+          {/* Conteúdo existente */}
           <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto gap-8 md:gap-8 relative z-10">
             <motion.div 
               variants={cardImageVariants}
               className="w-full md:w-[42%] flex justify-center relative"
             >
-              <div className="backdrop-blur-lg bg-white/5 rounded-2xl p-2">
+              <div className="relative">
                 <Image
                   src="/images/developer.svg"
                   alt="Desenvolvedor 3D"
                   width={420}
                   height={420}
-                  className="w-[220px] md:w-[340px] h-auto object-contain"
+                  className="w-[220px] md:w-[340px] h-auto object-contain relative z-10"
                 />
+                <div className="absolute -bottom-4 left-0 w-full">
+                  <div className="absolute bottom-0 left-0 w-full h-16 bg-[#070C14]/20 blur-xl" />
+                  <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#070C14] via-[#070C14]/80 to-transparent" />
+                  <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#070C14] via-[#070C14]/40 to-transparent opacity-60" />
+                  <div className="absolute -bottom-2 left-0 w-full h-12 bg-gradient-to-t from-[#070C14] to-transparent" />
+                </div>
               </div>
             </motion.div>
 
-            <div className="w-full md:w-[58%] flex flex-col">
+            <div className="w-full md:w-[58%] flex flex-col text-center md:text-left">
               <motion.h1 
-                custom={0}
                 variants={cardContentVariants}
                 className="text-4xl md:text-[56px] font-dmsans font-medium leading-[1.1] tracking-[-0.03em] mb-6 max-w-[600px] text-white"
               >
@@ -223,16 +265,15 @@ export default function AboutUs() {
               </motion.h1>
               
               <motion.p 
-                custom={1}
                 variants={cardContentVariants}
-                className="text-[#8A919F] text-base md:text-lg font-dmsans font-normal leading-[1.6] mb-6 max-w-[520px]"
+                className="text-[#8A919F] text-base md:text-lg font-dmsans font-normal leading-[1.6] mb-6 max-w-[520px] mx-auto md:mx-0"
               >
                 Soluções digitais que transformam processos, oferecendo praticidade, controle e integração perfeita.
               </motion.p>
               
               <motion.button 
                 variants={cardContentVariants}
-                className="flex items-center justify-center w-fit px-6 py-3 bg-[#1A1D21] border border-zinc-700 hover:bg-[#222528] text-white text-[15px] font-dmsans font-medium rounded-lg transition-all duration-200 group"
+                className="flex items-center justify-center w-fit px-6 py-3 bg-[#1A1D21] border border-zinc-700 hover:bg-[#222528] text-white text-[15px] font-dmsans font-medium rounded-lg transition-all duration-200 group mx-auto md:mx-0"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 onClick={handleRedirect}

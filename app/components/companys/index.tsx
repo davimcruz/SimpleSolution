@@ -61,12 +61,9 @@ const CompanySlider = () => {
       }}
       className="relative w-full max-w-[1200px] mx-auto h-[100px] overflow-hidden mt-10 md:-mt-10"
     >
-      <div className="absolute top-0 bottom-0 left-0 w-[30px] z-10 
-           pointer-events-none [box-shadow:inset_5px_0_8px_-5px_rgba(0,0,0,0.1)]" />
-      
       <div 
         ref={sliderRef}
-        className="flex gap-20 overflow-hidden whitespace-nowrap"
+        className="flex gap-20 overflow-hidden whitespace-nowrap [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent_100%)]"
       >
         {[...Array(3)].map((_, groupIndex) => (
           <div key={groupIndex} className="flex gap-20 min-w-max">
@@ -96,9 +93,6 @@ const CompanySlider = () => {
           </div>
         ))}
       </div>
-
-      <div className="absolute top-0 bottom-0 right-0 w-[30px] z-10 
-           pointer-events-none [box-shadow:inset_-5px_0_8px_-5px_rgba(0,0,0,0.1)]" />
     </motion.div>
   )
 }

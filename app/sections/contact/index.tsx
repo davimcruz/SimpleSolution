@@ -42,8 +42,10 @@ export default function Contact() {
       className="bg-[#070C14] h-full w-full py-20 md:py-32"
     >
       <div className="w-full max-w-6xl mx-auto px-8">
-        <div className="bg-[#D1DAE8] rounded-3xl p-8 md:p-16">
-          <div className="flex flex-col items-center text-center">
+        <div className="bg-[#D1DAE8] rounded-3xl p-8 md:p-16 relative overflow-hidden">
+          <div className="absolute -top-32 -left-32 w-64 h-64 bg-blue-500/20 rounded-full blur-[100px]" />
+          <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-blue-500/20 rounded-full blur-[100px]" />
+          <div className="flex flex-col items-center text-center relative z-10">
             <motion.span
               custom={0}
               initial="hidden"

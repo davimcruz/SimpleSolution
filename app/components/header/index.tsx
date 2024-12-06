@@ -10,19 +10,19 @@ import { BsArrowRight } from "react-icons/bs";
 const links = [
   {
     name: "Sobre nós",
-    href: "/",
+    href: "/#about",
   },
   {
     name: "Serviços", 
-    href: "/",
+    href: "/#services",
   },
   {
     name: "Avaliações",
-    href: "/",
+    href: "/#testimonials",
   },
   {
     name: "Contate-nos",
-    href: "/",
+    href: "/#contact",
   },
 ]
 
@@ -65,6 +65,19 @@ export default function Header() {
     });
   };
 
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.replace(/.*\#/, '');
+    const elem = document.getElementById(targetId);
+    
+    if (elem) {
+      elem.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
   return (
     <motion.header
       initial={{ y: -100, opacity: 0 }}
@@ -95,9 +108,13 @@ export default function Header() {
 
       <div className="hidden lg:flex justify-around items-center">
         <motion.div
-          initial={{ x: -30, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          initial={{ x: -30, opacity: 0, scale: 0.9 }}
+          animate={{ x: 0, opacity: 1, scale: 1 }}
+          transition={{ 
+            duration: 0.8, 
+            delay: 0.2,
+            ease: "easeOut"
+          }}
         >
           <Link href="/">
             <Image src="/images/logo-1.png" alt="Simple Solution" width={150} height={120} />
@@ -110,21 +127,26 @@ export default function Header() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="flex gap-8"
         >
-          {/* {links.map((link, index) => (
+          {links.map((link, index) => (
             <motion.li 
               key={link.name}
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.2 * (index + 1) }}
+              transition={{ 
+                duration: 0.5,
+                delay: 0.2 * (index + 1),
+                ease: "easeOut"
+              }}
             >
               <Link 
                 href={link.href} 
+                onClick={(e) => handleScroll(e, link.href)}
                 className="text-[#828E9D] hover:text-blue-500 transition-colors duration-300 text-lg font-dmsans font-normal relative flex items-center gap-2"
               >
                 {link.name}
               </Link>
             </motion.li>
-          ))} */}
+          ))}
         </motion.ul>
 
         <motion.div
